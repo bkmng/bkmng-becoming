@@ -54,8 +54,19 @@ resources:
 
   - id: resource-bkmng-web-frontend
     becoming_type: Resource
-    label: bkmng-web frontend
-    description: Astro + TypeScript landing page. Minimal. Starting point for demo UI.
+    label: bkmng-web public company site
+    description: >
+      Astro static site at bkmng.com (Vercel). Public company landing page —
+      problem statement, model description, contact. Stripped of demo content.
+
+  - id: resource-bkmng-app
+    becoming_type: Resource
+    label: bkmng-app Becoming demo
+    description: >
+      Private Astro application at app.bkmng.com (GCP Cloud Run + IAP).
+      Visualises BKMNG's own strategy as a Becoming instance: decisions,
+      assumptions, and relation graph. bkmng-becoming is a git submodule;
+      data is loaded at build time.
 
   - id: resource-bkmng-becoming-instance
     becoming_type: Resource
@@ -71,10 +82,12 @@ results:
   - id: result-working-demo
     becoming_type: Result
     label: Working demo
-    observed: false
+    observed: true
+    observed_at: "2026-03-10"
     description: >
-      A navigable web view of BKMNG's own strategy as a Becoming instance.
-      Target: ready before first NHH pilot conversation.
+      A navigable web view of BKMNG's own strategy as a Becoming instance,
+      live at app.bkmng.com. IAP-protected. Decisions, assumptions, and
+      relation graph all rendering from bkmng-becoming data.
 
   - id: result-nhh-pilot-conversation
     becoming_type: Result

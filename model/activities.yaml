@@ -41,10 +41,13 @@ activities:
     becoming_type: Activity
     label: Building the working demo
     description: >
-      Connecting bkmng-web/ to the platform data layer to produce a navigable
-      view of BKMNG's own strategy as a Becoming instance.
+      bkmng-app: private Astro application loading bkmng-becoming as a git
+      submodule at build time. Deployed on GCP Cloud Run + IAP at app.bkmng.com.
+      CI/CD via Cloud Build triggered on push to main. Views: decisions,
+      assumptions, relation graph.
     relations:
-      - { type: uses,     to: resource-bkmng-web-frontend }
+      - { type: uses,     to: resource-bkmng-becoming-instance }
+      - { type: produces, to: resource-bkmng-app }
       - { type: produces, to: result-working-demo }
 
   - id: activity-nhh-engagement
