@@ -1,0 +1,97 @@
+# BKMNG — Entity Registry
+
+# Actors
+
+actors:
+
+  - id: actor-founding-team
+    becoming_type: Actor
+    label: Founding team
+    actor_scope: internal
+    description: Frode Reinertsen and core collaborators building BKMNG
+
+  - id: actor-nhh-faculty
+    becoming_type: Actor
+    label: NHH faculty
+    actor_scope: external
+    description: >
+      Strategy and entrepreneurship researchers at NHH Norwegian School of Economics.
+      Primary target for academic validation and pilot engagement.
+
+  - id: actor-lasse-lien
+    becoming_type: Actor
+    label: Lasse Lien
+    actor_scope: external
+    description: NHH strategy professor. Collaborator and academic validator.
+
+  - id: actor-knut-wilhelm-knutsen
+    becoming_type: Actor
+    label: Knut Wilhelm Knutsen
+    actor_scope: external
+    description: Collaborator. Context in bkmng-foundation/06-collaborators/.
+
+  - id: actor-entrepreneurship-students
+    becoming_type: Actor
+    label: Entrepreneurship students
+    actor_scope: external
+    description: Target users for the first pilot — entrepreneurship and innovation courses at NHH.
+
+# Resources
+
+resources:
+
+  - id: resource-bkmng-foundation
+    becoming_type: Resource
+    label: bkmng-foundation knowledge base
+    description: 30-file markdown knowledge base covering vision, problem, research, strategy, collaborators.
+
+  - id: resource-becoming-formal-model
+    becoming_type: Resource
+    label: Becoming formal model
+    description: >
+      TypeScript schema and markdown docs in the becoming/ repo.
+      Ontology, concepts, schema, ADRs. Produced by activity-model-specification.
+
+  - id: resource-bkmng-web-frontend
+    becoming_type: Resource
+    label: bkmng-web frontend
+    description: Astro + TypeScript landing page. Minimal. Starting point for demo UI.
+
+  - id: resource-bkmng-becoming-instance
+    becoming_type: Resource
+    label: bkmng-becoming Becoming instance
+    description: >
+      This repository as a live Becoming model of the BKMNG project.
+      Produced by activity-live-journal.
+
+# Results
+
+results:
+
+  - id: result-working-demo
+    becoming_type: Result
+    label: Working demo
+    observed: false
+    description: >
+      A navigable web view of BKMNG's own strategy as a Becoming instance.
+      Target: ready before first NHH pilot conversation.
+
+  - id: result-nhh-pilot-conversation
+    becoming_type: Result
+    label: First NHH pilot conversation
+    observed: false
+    description: An initial structured conversation with NHH faculty using the demo as evidence.
+
+  - id: result-becoming-model-published
+    becoming_type: Result
+    label: Becoming model published
+    observed: false
+    description: The becoming/ repo as a citable, publicly accessible specification.
+
+  - id: result-model-gaps-identified
+    becoming_type: Result
+    label: Model gaps identified through use
+    observed: false
+    description: >
+      Friction encountered when representing real strategy using Becoming.
+      Each gap is a model improvement opportunity.

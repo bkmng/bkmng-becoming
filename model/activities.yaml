@@ -1,0 +1,59 @@
+# BKMNG — Activity Registry
+
+# Ongoing activities that form the strategic work of this project.
+# Activities are Events (type: Activity) — they must affect something else.
+
+activities:
+
+  - id: activity-model-specification
+    becoming_type: Activity
+    label: Specifying the Becoming model
+    description: >
+      Defining ontology, concepts, schema, and ADRs in the becoming/ repo.
+      Uses resource-bkmng-foundation as source material.
+      Produces resource-becoming-formal-model.
+    relations:
+      - { type: uses,     to: resource-bkmng-foundation }
+      - { type: produces, to: resource-becoming-formal-model }
+
+  - id: activity-live-journal
+    becoming_type: Activity
+    label: Running the BKMNG Becoming instance
+    description: >
+      Writing decisions, observations, and directions in bkmng-becoming/
+      using formal Becoming records. Produces resource-bkmng-becoming-instance
+      and feeds back into model specification.
+    relations:
+      - { type: produces, to: resource-bkmng-becoming-instance }
+      - { type: enables,  to: activity-demo-construction }
+
+  - id: activity-platform-development
+    becoming_type: Activity
+    label: Building bkmng-platform
+    description: >
+      Creating the TypeScript data layer, API, and seed data for the BKMNG platform.
+      Will import @bkmng/becoming schema directly.
+    relations:
+      - { type: uses,    to: resource-becoming-formal-model }
+      - { type: enables, to: activity-demo-construction }
+
+  - id: activity-demo-construction
+    becoming_type: Activity
+    label: Building the working demo
+    description: >
+      Connecting bkmng-web/ to the platform data layer to produce a navigable
+      view of BKMNG's own strategy as a Becoming instance.
+    relations:
+      - { type: uses,     to: resource-bkmng-web-frontend }
+      - { type: produces, to: result-working-demo }
+
+  - id: activity-nhh-engagement
+    becoming_type: Activity
+    label: NHH pilot engagement
+    description: >
+      Structured conversations with NHH faculty and entrepreneurship students
+      using the working demo. Entry point for external validation.
+    relations:
+      - { type: uses,     to: result-working-demo }
+      - { type: affects,  to: actor-nhh-faculty }
+      - { type: produces, to: result-nhh-pilot-conversation }
