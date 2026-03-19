@@ -11,8 +11,9 @@ rationale: >
   bkmng-service. The decision to use a dedicated repo (vs. embedding in bkmng-app)
   follows the repo-per-concern pattern established in ADR-003. The HTTP API uses
   Node.js built-in http module with zero framework dependencies beyond pg (PostgreSQL
-  client), keeping the attack surface small and the dependency count minimal. All 17
-  domain tools are exposed via POST /tools/{name} with JSON bodies.
+   client) and @google-cloud/vertexai (Gemini integration), keeping the attack surface
+   small and the dependency count minimal. All 20 domain tools (6 read, 11 write, 3
+   lifecycle) are exposed via POST /tools/{name} with JSON bodies.
 based_on:
   - assumption-id: assumption-tools-over-tables
     assumption_type: activity
@@ -47,9 +48,10 @@ ADR-006 committed to a modular monolith on Cloud Run. ADR-007 extended the Becom
    - No ORM — raw SQL with parameterized queries
    - No middleware chain — just a request handler with pattern matching
 
-3. **17 domain tools**: All tools from the domain-tools.md specification are implemented:
+3. **20 domain tools**: All tools from the domain-tools.md specification are implemented:
    - 6 read tools (safe, direct execution)
    - 11 write tools (transactional, with domain event logging)
+   - 3 lifecycle tools (deprecate_object, reject_object, remove_relation)
 
 4. **Database schema as migration**: The complete 20-table schema (core + prompt + knowledge) is a single SQL migration file, tracked by a `_migrations` table.
 
